@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>guestlogin</title>
+  <script>
+    function login()  {
+      let id = "";
+      let pw = "";
+
+      while (id !== "a" || pw !== "1234") {
+      id = prompt("아이디를 입력해주세요.");
+      pw = prompt("비밀번호를 입력해주세요.");
+
+      if (id === "a" && pw === "1234") {
+        alert("로그인 되었습니다.");
+      } else {
+        alert("틀렸습니다. 다시 시도해주세요. hint! a와 1234");
+      }
+    }
+  }
+  </script>
+  <style>
+  .mainbox  {
+    width: 450px;
+    height: 600px;
+    background-color: rgb(0, 0, 0);
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+button  {
+  margin-left: 190px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="mainbox">
+    <button type="button" onclick="login()"><a href="guestone.html">login plz</a></button>
+  </div>
+</body>
+</html>
