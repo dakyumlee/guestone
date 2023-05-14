@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style>
+
+body  {
+  text-align: center;
+}
+
+.guestbox {
+  padding: 20px;
+  margin-top: 30px;
+}
+
+
+.mainbox  {
+  width: 450px;
+  height: 600px;
+  background-color: rgb(0, 0, 0);
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.smallbox {
+  width: 400px;
+  height: 500px;
+  background-color: rgb(216, 216, 216);
+  position: absolute; 
+  left: 50%; 
+  top: 45%; 
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.partbox  {
+  width: 380px;
+  height: 450px;
+  background-color: rgb(255, 255, 255);
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid rgb(216, 216, 216);
+  overflow-y: scroll;
+}
+
+.img1 > img  {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: red;
+  animation: move 3s ease infinite;
+}
+
+.img1 > p  {
+  position: absolute;
+  top: 30px;
+  left: 170px;
+}
+
+.img2 > img {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: red;
+  animation: move 3s ease infinite;
+}
+
+.img2 > p  {
+  position: absolute;
+  top: 150px;
+  left: 170px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+table {
+  margin: auto;
+}
+
+th, td{
+  padding: 10px;
+  text-align: center;
+}
+
+.td1  {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.td2  {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.td3  {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.td4  {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+  </style>
+  <script>
+    function tableWrite() {
+      let userName = document.querySelector("#username").value;
+      let userContent = document.querySelector("#content").value;
+      let tbody = document.querySelector("tbody");
+      let userDate = new Date();
+
+      let year = userDate.getFullYear();
+      let month = userDate.getMonth() + 1;
+      let date = userDate.getDate();
+      let hours = String(userDate.getHours()).padStart(2, "0");
+      let minutes = String(userDate.getMinutes()).padStart(2, "0");
+
+      let newtr = document.createElement("tr");
+      let td1 = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+      let td4 = document.createElement("td");
+
+      td1.innerText = tbody.rows.length;
+      td2.innerText = userName;
+      td3.innerText = userContent;
+      td4.innerText = `${year}-${month}-${date} ${hours}:${minutes}`;
+
+      newtr.append(td1);
+      newtr.append(td2);
+      newtr.append(td3);
+      newtr.append(td4);
+      tbody.appendChild(newtr);
+
+      alert("작성되었습니다.")
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>guestone</title>
+  <link rel="stylesheet" href="./cyworldguest.css">
+</head>
+<body>
+  <div class="mainbox">
+    <div class="smallbox">
+      <div class="partbox" >
+        <div class="guestbox">
+          <label for="username">작성자:</label>
+          <input type="text" id="username" size="6px"/>
+          <label for="content">내용:</label>
+          <input type="text" id="content" size="6px"/>
+          <button type="button" onclick="tableWrite()" style="margin-bottom: 20px">
+          작성
+        </button>
+        </div>
+        <table border="1px";>
+          <tr>
+            <td class="td1">no</td>
+            <td class="td2">who</td>
+            <td class="td3">write</td>
+            <td class="td4">time</td>
+          </tr>
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+  </div>
+</body>
+</html>
